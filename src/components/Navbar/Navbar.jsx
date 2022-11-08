@@ -22,7 +22,10 @@ const Navbar=()=> {
           <p className="bg-[white]  text-black rounded-full p-3 cursor-pointer active:scale-[0.95]"><AiOutlineUser size={22} /></p>
           <p onClick={()=>setSettingsDrawerPosition('0px')} className="bg-[white]  text-black rounded-full p-3 cursor-pointer active:scale-[0.95]"><IoSettingsSharp size={22} /></p>
         </section>}
+      
+        {settingsDrawerPosition!=='-450px' && <div onClick={()=>setSettingsDrawerPosition('-450px')} className="h-[100vh] w-[100vw] absolute top-0 left-0 bg-[#00000080] z-10"></div>}
       </div>
+
       <SettingsDrawer settingsDrawerPosition={settingsDrawerPosition} setSettingsDrawerPosition={setSettingsDrawerPosition}/>
     </div>
   );

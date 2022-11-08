@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    pomoTime:15,
+    pomoTime:25,
     shortBreakTime:5,
     longBreakTime:15,
     completedPomoRound:0,

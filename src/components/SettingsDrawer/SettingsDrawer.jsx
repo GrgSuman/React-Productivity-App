@@ -37,7 +37,7 @@ const SettingsDrawer = ({settingsDrawerPosition,setSettingsDrawerPosition}) => {
   }
 
   return (
-    <div className={`h-[100vh] bg-white w-[450px] fixed top-0 overflow-y-scroll`} style={{right:settingsDrawerPosition,transition:'linear .2s'}}>
+    <div className={`h-[100vh] bg-white w-[450px] fixed top-0 overflow-y-scroll z-20`} style={{right:settingsDrawerPosition,transition:'linear .2s'}}>
 
       {/* top-controllers */}
       <div className='flex items-center justify-between px-4 py-2 border-b-2'>
@@ -52,7 +52,7 @@ const SettingsDrawer = ({settingsDrawerPosition,setSettingsDrawerPosition}) => {
             isSetBackgroundOpen:false,
             isAddRemoveWidgetOpen:false
          })
-         }} style={{visibility:innerSetting?'hidden':'visible'}} className="rounded-full p-3 cursor-pointer active:bg-gray-100"><VscClose size={25}/></div>
+         }} style={{visibility:innerSetting?'hidden':'visible'}} className="rounded-full p-3 cursor-pointer bg-gray-100 active:bg-gray-200"><VscClose size={25}/></div>
       </div>
 
       {/* setting options */}
@@ -69,8 +69,6 @@ const SettingsDrawer = ({settingsDrawerPosition,setSettingsDrawerPosition}) => {
       </h2>
       {controllerOpen.isTimeAndBreakOpen&&<TimeAndBreak/>}
 
-
-
       {/* sound and notification controllers */}
       <h2 onClick={()=>closeSubOption('isSoundAndNotificationOpen')} className='text-[1.1rem] cursor-pointer flex justify-between items-center my-5 hover:bg-gray-50 active:bg-gray-100 py-4 px-7'>
          <span className='font-semibold'>Sounds and Notifications</span>
@@ -84,7 +82,6 @@ const SettingsDrawer = ({settingsDrawerPosition,setSettingsDrawerPosition}) => {
          {controllerOpen.isSetBackgroundOpen?<VscChevronUp size={25}/>:<VscChevronDown size={25}/>}
       </h2>
       {controllerOpen.isSetBackgroundOpen&&<BackgroundOptions/>}
-
 
       <h2 onClick={()=>closeSubOption('isAddRemoveWidgetOpen')} className='text-[1.1rem] cursor-pointer flex justify-between items-center my-5 hover:bg-gray-50 active:bg-gray-100 py-4 px-7'>
          <span className='font-semibold'>Show / Hide Widgets</span>

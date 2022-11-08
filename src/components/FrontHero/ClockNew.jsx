@@ -9,7 +9,7 @@ const[active,setActive] = useState(false)
 
     useEffect(()=>{
 
-        if(active&&time>0){
+        if(active && time>0){
             var interval = setInterval(()=>{
                 setTime((time)=>time-1)
             },1000);
@@ -17,6 +17,12 @@ const[active,setActive] = useState(false)
         return () => clearInterval(interval);
     
     },[time,active])
+
+
+// DO NOT UPDATE TIME WHEN TIME IS RUNNING BUT UPDATE SHOWS IMMEDIATELY IF NOT ACTIVE
+    useEffect(()=>{
+        !active && setTime(seconds)
+    },[seconds,active])
 
     const toggleClock=()=>{
         setActive(!active)
@@ -37,7 +43,7 @@ const[active,setActive] = useState(false)
 
   return (
     <div>
-        <TimeComponent time={getTime}/>
+        <TimeComponent minutes={getTime().minutes} seconds={getTime().seconds}/>
         <TimeController resetTime={resetTime} toggleClock={toggleClock} isClockActive={active}/>
     </div>
   )
