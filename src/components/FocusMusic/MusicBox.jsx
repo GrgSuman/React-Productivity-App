@@ -28,7 +28,7 @@ const MusicBox=()=> {
 
   return (
     <div className='w-[200px] bg-[#00000095] h-[130px] rounded-lg absolute left-[5%] bottom-[8%] flex justify-center gap-4 items-center'>
-        <img src={musicIcon} className="h-[120px] -z-10 rounded-lg w-[180px] absolute top-0 left-0" alt="musicIcon"/>
+        <img src={musicIcon} className="h-[100%] -z-10 rounded-lg w-[100%] absolute top-0 left-0" alt="musicIcon"/>
  
         <audio ref={currentMusic} src={music.musicCollection[music.musicIndex].src}></audio>
 

@@ -6,7 +6,7 @@ const initialState = {
     longBreakTime:15,
     completedPomoRound:0,
     startLongBreakIn:4,
-    startBreakAutomatically:false,
+    startBreakAutomatically:true,
     startPomodoroAutomatically:false
 };
 

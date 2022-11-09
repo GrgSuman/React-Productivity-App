@@ -37,7 +37,7 @@ const SettingsDrawer = ({settingsDrawerPosition,setSettingsDrawerPosition}) => {
   }
 
   return (
-    <div className={`h-[100vh] bg-white w-[450px] fixed top-0 overflow-y-scroll z-20`} style={{right:settingsDrawerPosition,transition:'linear .2s'}}>
+    <div className={`h-[100vh] bg-white w-[330px] sm:w-[450px] fixed top-0 overflow-y-scroll z-20`} style={{right:settingsDrawerPosition,transition:'linear .2s'}}>
 
       {/* top-controllers */}
       <div className='flex items-center justify-between px-4 py-2 border-b-2'>
