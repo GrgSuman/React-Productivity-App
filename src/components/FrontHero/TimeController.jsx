@@ -21,18 +21,18 @@ function TimeController({resetTime,toggleClock,isClockActive}) {
         <audio ref={currentTikTikSound} src={alarm.tiktikSound}></audio>
         <div onClick={()=>{
             resetTime()
-        }}><MdReplay size={40} className='active:scale-[0.95] transition ease-linear duration-200 text-white font-bold cursor-pointer'/></div>
+        }}><MdReplay className='active:scale-[0.95] text-[2.5rem] transition ease-linear duration-200 text-white font-bold cursor-pointer'/></div>
 
        {!isClockActive && <button onClick={()=>{
-            toggleClock()
-       }} className='active:scale-[0.95] bg-white mx-[2rem] px-[2rem] py-[0.6rem] text-[1.6rem] font-medium rounded-full flex items-center justify-center'>
+            toggleClock(true)
+       }} className='active:scale-[0.95] bg-white mx-[2rem] px-[2rem] py-[0.6rem] text-[1rem] sm:text-[1.6rem] font-medium rounded-full flex items-center justify-center'>
             <span>start</span>
             <span className='ml-2 font-normal'><IoPlay/></span>
         </button> }
 
        {isClockActive && <button onClick={()=>{
-            toggleClock()
-       }} className='active:scale-[0.95] bg-white mx-[2rem] px-[2rem] py-[0.6rem] text-[1.6rem] font-medium rounded-full flex items-center justify-center'>
+            toggleClock(false)
+       }} className='active:scale-[0.95] bg-white mx-[2rem] px-[2rem] py-[0.6rem] text-[1rem] sm:text-[1.6rem] font-medium rounded-full flex items-center justify-center'>
             <span>pause</span>
             <span className='ml-2 font-normal'><BsPauseFill/></span>
         </button> }

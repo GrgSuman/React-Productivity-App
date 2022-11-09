@@ -10,7 +10,7 @@ const MainBackground=(props)=> {
   const bg = useSelector((state)=>state.background)
   return (
     <FullScreen handle={handle}>
-      <div className={` px-[5%] h-[100vh] w-[100%] fixed top-0 left-0`} style={{ background:bg.isBgAnImage?'white':bg.bgColors[bg.bgColorIndex],animation:"slide linear 1s"}}>
+      <div className={`px-[2%] h-[100vh] w-[100%] absolute z-10 top-0 left-0`} style={{ background:bg.isBgAnImage?'white':bg.bgColors[bg.bgColorIndex],animation:"slide linear 1s"}}>
         {bg.isBgAnImage&&<img src={bg.bgImages[bg.bgImageIndex]} alt="hero-background" className='h-[100vh] w-[100%] absolute top-0 left-0 object-cover -z-10'/>}
         {props.children}
         

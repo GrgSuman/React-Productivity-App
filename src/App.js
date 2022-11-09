@@ -26,6 +26,8 @@ function App() {
         <Navbar/>
         <FrontHero/>
       </MainBackground>
+
+      {/* <div style={{height:"500px",width:"100%",background:"red",marginTop:"100vh"}}></div> */}
     </div>
   );
 }

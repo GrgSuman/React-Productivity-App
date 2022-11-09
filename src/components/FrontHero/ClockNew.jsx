@@ -1,11 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import TimeComponent from './TimeComponent';
 import TimeController from './TimeController';
+import { useSelector } from 'react-redux';
 
-const ClockNew =({seconds})=> {
+
+const ClockNew =({seconds,playAlarm,nextState,setFocusState})=> {
 
 const[time,setTime] = useState(seconds)
 const[active,setActive] = useState(false)
+
+const notificationState = useSelector(state=>state.notification)
 
     useEffect(()=>{
 
@@ -14,18 +18,22 @@ const[active,setActive] = useState(false)
                 setTime((time)=>time-1)
             },1000);
         }
+        if(time===0){
+            setFocusState(nextState)
+            notificationState.notificationEnabled && playAlarm()
+        }
         return () => clearInterval(interval);
     
-    },[time,active])
+    },[time,active,setFocusState,nextState,playAlarm,notificationState.notificationEnabled])
 
 
 // DO NOT UPDATE TIME WHEN TIME IS RUNNING BUT UPDATE SHOWS IMMEDIATELY IF NOT ACTIVE
-    useEffect(()=>{
-        !active && setTime(seconds)
-    },[seconds,active])
+    // useEffect(()=>{
+    //     !active && setTime(seconds)
+    // },[seconds,active])
 
-    const toggleClock=()=>{
-        setActive(!active)
+    const toggleClock=(status)=>{
+        setActive(status)
     }
 
     const resetTime=()=>{
